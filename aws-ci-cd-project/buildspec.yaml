@@ -10,7 +10,7 @@ env:
 phases:
   install:
     runtime-versions:
-      python: 3.14
+      python: 3.11
       
    
   pre_build:
