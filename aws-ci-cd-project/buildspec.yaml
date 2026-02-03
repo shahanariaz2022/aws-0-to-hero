@@ -1,6 +1,5 @@
 version: 0.2
 
-
 env:
   parameter-store:
     DOCKER_REGISTRY_USERNAME: /myapp/docker-credentials/username
@@ -16,17 +15,19 @@ phases:
   pre_build:
     commands:
       - pip install -r aws-ci-cd-project/requirements.txt
-      
+      - echo "$DOCKER_REGISTRY_PASSWORD" | docker login -u "$DOCKER_REGISTRY_USERNAME" --password-stdin "$DOCKER_REGISTRY_URL"
+
    
   build:
      commands:
       - cd aws-ci-cd-project
       - echo "Building Docker Image"
       - docker build -t "$DOCKER_REGISTRY_URL/$DOCKER_REGISTRY_USERNAME/aws-ci-cd-project:latest" .
-      - docker push "$DOCKER_REGISTRY_URL/$DOCKER_REGISTRY_USERNAME/aws-ci-cd-project:latest"
     
     
   post_build:
     commands:
-      - echo "Build is successful"
+      - echo "Pushing Docker image..."
+      - docker push "$DOCKER_REGISTRY_URL/$DOCKER_REGISTRY_USERNAME/aws-ci-cd-project:latest"
 
+      - echo "Docker Build & Push Completed Successfully!"
