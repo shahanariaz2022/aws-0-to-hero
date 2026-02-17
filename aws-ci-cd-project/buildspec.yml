@@ -35,4 +35,4 @@ phases:
 artifacts:
   files:
     - '**/*'
-  base-directory: ../my-cicd-pipeline2
+  base-directory: ../aws-ci-cd-project
