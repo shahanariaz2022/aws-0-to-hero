@@ -31,3 +31,8 @@ phases:
       - docker push "$DOCKER_REGISTRY_URL/$DOCKER_REGISTRY_USERNAME/aws-ci-cd-project:latest"
 
       - echo "Docker Build & Push Completed Successfully!"
+
+artifacts:
+  files:
+    - '**/*'
+  base-directory: ../my-cicd-pipeline2
