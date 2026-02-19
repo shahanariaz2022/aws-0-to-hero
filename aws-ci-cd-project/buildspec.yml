@@ -35,5 +35,3 @@ phases:
 artifacts:
   files:
     - '**/*'
-  base-directory: aws-ci-cd-project
-  discard-paths: no
