@@ -34,6 +34,10 @@ phases:
 
 artifacts:
   files:
-    - '**/*'
+    - appspec.yml
+    - scripts/start_container.sh
+    - scripts/stop_container.sh
+    - aws-ci-cd-project/**/*
   base-directory: .
-  discard-paths : no
+  discard-paths: no
+
