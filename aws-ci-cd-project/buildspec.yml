@@ -33,11 +33,8 @@ phases:
       - echo "Docker Build & Push Completed Successfully!"
 
 artifacts:
-  files:
-    - appspec.yml
-    - scripts/start_container.sh
-    - scripts/stop_container.sh
-    - aws-ci-cd-project/**/*
-  base-directory: .
-  discard-paths: no
+files:
+- '**/*'
+base-directory: aws-ci-cd-project
+discard-paths: no
 
